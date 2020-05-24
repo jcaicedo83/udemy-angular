@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   nombre:string="Capitan America";
+  nombre2 :string = "jAvIeR AnDrEs cAiCeDo";
   arreglo =[1,2,3,4,5,6,7,8,9,10];
 
   PI:number= Math.PI;
@@ -32,5 +33,7 @@ export class AppComponent {
   });
 
   fecha : Date = new Date();
+  activar : boolean = true;
   idioma:string = 'en';
+  videoUrl :string='https://www.youtube.com/embed/XvDZ7oCwzio';
 }
