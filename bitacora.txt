@@ -1,0 +1,52 @@
+/*****************************************************/
+/* exportar datos a excel*/
+
+npm install xlsx file-saver --save
+npm audit fix
+
+<a style="cursor: pointer" (click)="exportexcel()">
+  <mat-icon> cloud_download</mat-icon>
+</a>
+
+import * as XLSX from 'xlsx'; 
+
+export class AppComponent {
+	
+/*name of the excel-file which will be downloaded. */ 
+fileName= 'ExcelSheet.xlsx';  
+
+exportexcel(): void 
+    {
+       /* table id is passed over here */   
+       let element = document.getElementById('excel-table');
+       const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+
+       /* generate workbook and add the worksheet */
+       const wb: XLSX.WorkBook = XLSX.utils.book_new();
+       XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+       /* save to file */
+       XLSX.writeFile(wb, this.fileName);
+    }
+}
+
+/*****************************************************/
+
+npm install ngx-pagination --save
+
+<div>
+        <pagination-controls id="listing-paginator" max-size="10" (pageChange)="page = $event"></pagination-controls>
+    </div>
+	
+// app.module.ts
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import {MyComponent} from './my.component';
+ 
+@NgModule({
+    imports: [BrowserModule, NgxPaginationModule], // <-- include it in your app module
+    declarations: [MyComponent],
+    bootstrap: [MyComponent]
+})
+export class MyAppModule {}
