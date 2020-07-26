@@ -1,0 +1,11 @@
+https://beta.developer.spotify.com/console/
+
+https://api.spotify.com/v1/browse/new-releases
+https://api.spotify.com/v1/search
+https://api.spotify.com/v1/search?q=michael&type=artist
+
+POST https://accounts.spotify.com/api/token
+
+grant_type = client_credentials
+client_id = 30282eddd157493bb1ac8de5ada4b684
+client_secret = 59f252d76f254592a11524c94fd6d7b1

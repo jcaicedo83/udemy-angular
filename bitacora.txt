@@ -30,23 +30,51 @@ exportexcel(): void
     }
 }
 
+ng update
+
 /*****************************************************/
-
-npm install ngx-pagination --save
-
-<div>
-        <pagination-controls id="listing-paginator" max-size="10" (pageChange)="page = $event"></pagination-controls>
-    </div>
-	
-// app.module.ts
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
-import {MyComponent} from './my.component';
+ import { MatButtonModule} from '@angular/material/button';
+import { MatChipsModule} from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+ import { MatRippleModule } from '@angular/material/core';
  
+ 
+ /*****************************************************/
+   npm i @angular/flex-layout@10.0.0-beta.32
+  ng update @angular/cli
+  
+Remove these lines from your package.json file:
+
+"@angular/animations": "^6.0.3",
+**"@angular/flex-layout": "6.0.0-beta.16",**
+**"@angular/material": "6.0.1",**
+Then, run this command to install Angular material packages:
+
+npm install --save @angular/material @angular/cdk @angular/animations
+After that you can import Angular material components like that:
+
+import {MatButtonModule} from '@angular/material
+Don't forget to add each component in the NgModule part:
+
 @NgModule({
-    imports: [BrowserModule, NgxPaginationModule], // <-- include it in your app module
-    declarations: [MyComponent],
-    bootstrap: [MyComponent]
+  imports: [MatButtonModule],
 })
-export class MyAppModule {}
+
+/*********************************************************/
+    "compila-dev": "ng build -c=dev --output-path=dist/DEV --base-href /Aplicaciones/cxd_v3.0/",
+    "compila-qa": "ng build -c=qa --output-path=dist/QA --base-href /Aplicaciones/cxd_v3.0/",
+    "compila-prod": "ng build -c=production --output-path=dist/PROD --base-href /Aplicaciones/cxd_v3.0/",
+    "compila-all": "npm run-script compila-dev & npm run-script compila-qa & npm run-script compila-prod",

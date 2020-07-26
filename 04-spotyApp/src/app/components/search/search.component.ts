@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SpotifyService } from '../../services/spotify.service';
 
 @Component({
 	selector: 'app-search',
@@ -6,10 +7,24 @@ import { Component } from '@angular/core';
 })
 export class SearchComponent{
 
-	constructor() { }
+	public artists :any[]=[];
+	loading :boolean;
 
-	findArtist=(termino:string)=>{
-		console.log(termino);
+	constructor( private spotify:SpotifyService ) {
+		
+	 }
+
+	
+
+	find=(termino:string)=>{
+
+		this.loading = true;
+
+		this.spotify.getArtists(termino).subscribe((data:any)=>{
+			
+			this.artists=data;
+			this.loading = false;
+		});
 	}
 
 }

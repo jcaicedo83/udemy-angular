@@ -10,12 +10,16 @@ import { SpotifyService } from '../../services/spotify.service';
 export class HomeComponent  {
 
 	newSongs:any[]=[];
+	loading:boolean;
 
 	constructor( private spotify : SpotifyService ) {
+
+		this.loading=true;
+
 		this.spotify.getNewReleases().subscribe(
 			(resp:any)=>{
-				console.log(resp.albums.items);
-				this.newSongs=resp.albums.items;
+				this.newSongs=resp;
+				this.loading=false;
 			}
 		);
 
